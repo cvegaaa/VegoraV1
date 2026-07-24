@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   VEGORA — Variables globales de marca
+   Personaliza aquí la paleta, tipografías y radios.
+   ============================================================ */
+:root {
+  --v-negro: #0A0A0A;
+  --v-carbon: #171717;
+  --v-grafito: #242424;
+  --v-azul: #2563EB;
+  --v-turquesa: #14B8A6;
+  --v-blanco: #F8FAFC;
+  --v-gris: #94A3B8;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Manrope', system-ui, sans-serif;
+    background-color: var(--v-negro);
+    color: var(--v-blanco);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1, h2, h3, h4, h5 {
+    font-family: 'Space Grotesk', sans-serif;
+    letter-spacing: -0.02em;
+  }
+
+  ::selection {
+    background: var(--v-azul);
+    color: white;
+  }
+}
+
+@layer components {
+  .container-v {
+    @apply mx-auto w-full max-w-7xl px-6 md:px-10;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-teal-400;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-blue-600 px-7 py-3.5 text-sm font-semibold text-white transition-all duration-300 hover:bg-blue-500 hover:shadow-[0_0_40px_-8px_rgba(37,99,235,0.7)] hover:-translate-y-0.5;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-white/15 bg-white/5 px-7 py-3.5 text-sm font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:border-white/40 hover:bg-white/10 hover:-translate-y-0.5;
+  }
+
+  .card {
+    @apply relative overflow-hidden rounded-2xl border border-white/10 bg-[#171717] p-7 transition-all duration-500;
+  }
+
+  .card:hover {
+    @apply border-white/25 bg-[#1f1f1f] -translate-y-1;
+  }
+
+  .section-title {
+    @apply text-3xl font-semibold leading-tight text-white md:text-4xl lg:text-[2.75rem];
+  }
+}
+
+/* ============================================================
+   Animaciones personalizadas
+   ============================================================ */
+
+/* Ken Burns — zoom suave y continuo para el hero */
+@keyframes kenburns {
+  0% {
+    transform: scale(1) translate(0, 0);
+  }
+  50% {
+    transform: scale(1.15) translate(-1.5%, -1%);
+  }
+  100% {
+    transform: scale(1) translate(0, 0);
+  }
+}
+
+.kenburns {
+  animation: kenburns 24s ease-in-out infinite;
+}
+
+/* Reveal al hacer scroll — controlado por JS */
+.reveal {
+  opacity: 0;
+  transform: translateY(36px);
+  transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-left {
+  transform: translateX(-40px);
+}
+.reveal-left.is-visible {
+  transform: translateX(0);
+}
+
+.reveal-right {
+  transform: translateX(40px);
+}
+.reveal-right.is-visible {
+  transform: translateX(0);
+}
+
+.reveal-scale {
+  transform: scale(0.94);
+}
+.reveal-scale.is-visible {
+  transform: scale(1);
+}
+
+/* Retardo escalonado para grids */
+.reveal[data-delay="1"] { transition-delay: 0.1s; }
+.reveal[data-delay="2"] { transition-delay: 0.2s; }
+.reveal[data-delay="3"] { transition-delay: 0.3s; }
+.reveal[data-delay="4"] { transition-delay: 0.4s; }
+.reveal[data-delay="5"] { transition-delay: 0.5s; }
+
+/* Pulso de red / nodos */
+@keyframes pulse-node {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+.pulse-node {
+  animation: pulse-node 3s ease-in-out infinite;
+}
+
+/* Línea decorativa que se dibuja */
+@keyframes draw-line {
+  from { stroke-dashoffset: 200; }
+  to { stroke-dashoffset: 0; }
+}
+
+.draw-line {
+  stroke-dasharray: 200;
+  animation: draw-line 2.5s ease forwards;
+}
+
+/* Barra de progreso del quiz */
+@keyframes fill-bar {
+  from { width: 0%; }
+}
+
+.fill-bar {
+  animation: fill-bar 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* Scrollbar sutil */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0A0A0A;
+}
+::-webkit-scrollbar-thumb {
+  background: #242424;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #333;
+}
+
+/* Respeto a usuarios con motion reducido */
+@media (prefers-reduced-motion: reduce) {
+  .kenburns { animation: none; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+  html { scroll-behavior: auto; }
+}
