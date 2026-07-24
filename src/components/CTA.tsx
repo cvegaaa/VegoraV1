@@ -2,7 +2,7 @@ import { ArrowRight, Mail, Phone, MapPin } from 'lucide-react';
 
 export function CTA() {
   return (
-    <section id="contacto" className="relative overflow-hidden py-24 md:py-32">
+    <section id="contacto" className="relative z-0 overflow-hidden py-24 md:py-32">
       {/* Fondo con imagen y degradado */}
       <div className="absolute inset-0 -z-10">
         <div
@@ -37,7 +37,7 @@ export function CTA() {
               Agendar diagnóstico gratuito
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </a>
-            <a href="https://wa.me/570000000000" target="_blank" rel="noopener noreferrer" className="btn-ghost">
+            <a href="https://wa.me/573107158064" target="_blank" rel="noopener noreferrer" className="btn-ghost">
               Escríbanos por WhatsApp
             </a>
           </div>
@@ -45,11 +45,11 @@ export function CTA() {
           <div className="reveal mt-12 flex flex-col items-center gap-4 text-sm text-slate-400 sm:flex-row sm:justify-center sm:gap-8" data-delay="4">
             <a href="mailto:contacto@vegora.co" className="flex items-center gap-2 transition-colors hover:text-white">
               <Mail className="h-4 w-4 text-teal-400" />
-              contacto@vegora.co
+              Contacto@vegora.co
             </a>
             <a href="tel:+570000000000" className="flex items-center gap-2 transition-colors hover:text-white">
               <Phone className="h-4 w-4 text-teal-400" />
-              +57 000 000 0000
+              +57 3107158064
             </a>
             <span className="flex items-center gap-2">
               <MapPin className="h-4 w-4 text-teal-400" />

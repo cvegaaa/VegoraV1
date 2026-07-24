@@ -2,7 +2,7 @@ import { differentials } from '@/data/content';
 
 export function Diferencial() {
   return (
-    <section id="diferencial" className="relative overflow-hidden py-24 md:py-32">
+    <section id="diferencial" className="relative z-0 overflow-hidden py-24 md:py-32">
       {/* Imagen lateral con parallax sutil */}
       <div className="absolute right-0 top-0 hidden h-full w-1/2 lg:block">
         <div

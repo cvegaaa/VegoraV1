@@ -2,7 +2,7 @@ import { ArrowRight, Play } from 'lucide-react';
 
 export function Hero() {
   return (
-    <section id="hero" className="relative flex min-h-screen items-center overflow-hidden">
+    <section id="hero" className="relative z-0 flex min-h-screen items-center overflow-hidden">
       {/* Imagen de fondo con efecto Ken Burns */}
       <div className="absolute inset-0 -z-10">
         <div
@@ -21,11 +21,11 @@ export function Hero() {
         <div className="max-w-3xl">
           <span className="eyebrow reveal">
             <span className="h-px w-8 bg-teal-400" />
-            Transformación Tecnológica B2B
+            DISEÑAMOS EL CAMBIO
           </span>
 
           <h1 className="reveal mt-6 text-4xl font-semibold leading-[1.08] text-white sm:text-5xl lg:text-6xl xl:text-7xl" data-delay="1">
-            La tecnología que su empresa necesita para dejar de sobrevivir y empezar a{' '}
+            la ventaja no se improvisa, se construye. Deja de sobrevivir y empieza a{' '}
             <span className="bg-gradient-to-r from-blue-500 to-teal-400 bg-clip-text text-transparent">
               liderar
             </span>
