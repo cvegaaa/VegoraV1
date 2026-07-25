@@ -8,3 +8,11 @@ createRoot(document.getElementById('root')!).render(
     <App />
   </StrictMode>
 );
+window.addEventListener('load', () => {
+  const preloader = document.getElementById('preloader');
+
+  // Espera 1 segundo (1000ms) y luego añade la clase .hidden
+  setTimeout(() => {
+    preloader.classList.add('hidden');
+  }, 1000);
+});

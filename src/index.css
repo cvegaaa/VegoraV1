@@ -186,3 +186,64 @@
   .reveal { opacity: 1; transform: none; transition: none; }
   html { scroll-behavior: auto; }
 }
+/* Pantalla completa fija por encima de todo el contenido */
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #0b0f19; /* Fondo oscuro acorde a VEGORA */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999; /* Máxima prioridad visual */
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.8s ease, visibility 0.8s ease; /* Transición suave de salida */
+}
+
+/* Contenedor relativo para alinear logo y aro */
+.loader-container {
+  position: relative;
+  width: 130px;
+  height: 130px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Aro de carga orbitando */
+.spinner {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 3px solid rgba(255, 255, 255, 0.08);
+  border-top: 3px solid #2563eb; /* Color de acento azul */
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Logo de la marca */
+.preloader-logo {
+  width: 65px;
+  height: auto;
+  animation: breathe 2s ease-in-out infinite;
+}
+
+@keyframes breathe {
+  0%, 100% { transform: scale(1); opacity: 0.9; }
+  50% { transform: scale(1.05); opacity: 1; }
+}
+
+/* Clase que aplicará JavaScript a los 3 segundos para ocultarlo */
+#preloader.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none; /* Permite hacer clic en la página una vez oculto */
+}

@@ -3,19 +3,19 @@ import { CheckCircle2 } from 'lucide-react';
 
 export function Problemas() {
   return (
-    <section className="relative py-24 md:py-32">
+    <section className="relative bg-white py-24 md:py-32">
       <div className="container-v">
         <div className="grid items-start gap-12 lg:grid-cols-2 lg:gap-20">
           {/* Columna izquierda — problemas */}
           <div>
-            <span className="eyebrow reveal">
-              <span className="h-px w-8 bg-teal-400" />
+            <span className="eyebrow reveal text-teal-600" data-delay="1">
+              <span className="h-px w-8 bg-teal-500" />
               ¿Le suena esto?
             </span>
-            <h2 className="reveal section-title mt-6" data-delay="1">
+            <h2 className="reveal section-title mt-6 text-slate-900 !text-slate-900" data-delay="1">
               Las señales que indican que su empresa ya necesita dar el salto
             </h2>
-            <p className="reveal mt-6 text-lg leading-relaxed text-slate-400" data-delay="2">
+            <p className="reveal mt-6 text-lg leading-relaxed text-slate-600" data-delay="2">
               Si dos o más de estas situaciones le resultan familiares, es momento de actuar.
               La transformación no espera, y la competencia tampoco.
             </p>
@@ -24,15 +24,18 @@ export function Problemas() {
               {problems.map((item, i) => (
                 <div
                   key={item.title}
-                  className="reveal flex gap-4 rounded-2xl border border-white/10 bg-white/[0.03] p-5 transition-colors duration-300 hover:border-red-500/30"
+                  className="reveal group relative overflow-hidden rounded-2xl border border-slate-200/60 bg-slate-50 p-6 shadow-sm transition-all duration-500 hover:border-slate-300 hover:bg-slate-900 hover:-translate-y-1"
                   data-delay={(i % 2) + 1}
                 >
-                  <div className="flex-shrink-0 text-red-400">
-                    <item.icon className="h-6 w-6" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-white">{item.title}</h3>
-                    <p className="mt-1 text-sm text-slate-400">{item.description}</p>
+                  <div className="pointer-events-none absolute -top-px left-0 right-0 h-px bg-gradient-to-r from-transparent via-teal-500/40 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                  <div className="flex gap-4">
+                    <div className="flex-shrink-0 text-teal-600 bg-teal-500/10 rounded-2xl p-3 transition-colors duration-300 group-hover:bg-cyan-500/10">
+                      <item.icon className="h-6 w-6" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-semibold text-slate-900 transition-colors duration-300 group-hover:text-white">{item.title}</h3>
+                      <p className="mt-1 text-sm text-slate-600 transition-colors duration-300 group-hover:text-slate-300">{item.description}</p>
+                    </div>
                   </div>
                 </div>
               ))}
