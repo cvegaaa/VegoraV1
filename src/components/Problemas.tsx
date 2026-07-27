@@ -47,7 +47,7 @@ export function Problemas() {
             <div className="overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-[#171717] to-[#0E0E0E] p-8 md:p-10">
               <span className="eyebrow">
                 <span className="h-px w-8 bg-teal-400" />
-                Nuestro cliente ideal
+                Nuestro cliente
               </span>
               <h3 className="mt-5 text-2xl font-semibold text-white md:text-3xl">
                 Empresas que entienden que el estancamiento es el riesgo más caro
